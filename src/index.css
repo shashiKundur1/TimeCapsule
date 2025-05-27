@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #64C9CF;
+  --secondary: #FDE49C;
+  --accent: #FFB740;
+  --tertiary: #DF711B;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    height: 100%;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 min-h-screen;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-2 focus:ring-primary-300 focus:outline-none;
+  }
+
+  .btn-secondary {
+    @apply btn bg-accent text-white hover:bg-accent-600 focus:ring-2 focus:ring-accent-300 focus:outline-none;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary text-primary hover:bg-primary-50 focus:ring-2 focus:ring-primary-300 focus:outline-none;
+  }
+
+  .btn-tertiary {
+    @apply btn bg-tertiary text-white hover:bg-tertiary-600 focus:ring-2 focus:ring-tertiary-300 focus:outline-none;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary-300 focus:outline-none transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl;
+  }
+}
+
+/* Calendar customization */
+.react-calendar {
+  @apply w-full bg-white border-none rounded-xl shadow-md p-4;
+}
+
+.react-calendar__tile {
+  @apply rounded-lg;
+}
+
+.react-calendar__tile--now {
+  @apply bg-primary-100;
+}
+
+.react-calendar__tile--active {
+  @apply bg-primary-500 text-white;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  @apply bg-primary-50 rounded-lg;
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  @apply bg-primary-100;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
